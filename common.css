@@ -1,0 +1,430 @@
+/* 잘난체 고딕 */
+@font-face {
+  font-family: "YeogiOttaeJalnanGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff")
+    format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+/* JetBrains */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+/*
+    font-family: "JetBrains Mono", monospace;
+  */
+
+/* Pretendard */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+/*
+   font-family: "Pretendard Variable", sans-serif;
+    */
+
+/* FONT-AWESOME */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
+
+/* ----------------- */
+/* 00. Root */
+/* ----------------- */
+:root {
+  --deep: #004015;
+  --brand: #00501a;
+  --brand2: #0e6eff;
+  --point: #00e5ff;
+  --point2: #aacf76;
+  --maw: 1440px;
+  --section-gap: 60px;
+  --gap: 20px;
+  --pdy: 120px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 40px;
+    --gap: 10px;
+    --pdy: 80px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  list-style: none;
+  font-family: "Pretendard Variable", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.custom-main img,
+.custom-main video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 텍스트 오버플로우 제어 */
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* 줄 수 제한 */
+  line-clamp: 3;
+  display: -webkit-box;
+}
+
+/* ----------------- */
+/* 01. Font */
+/* ----------------- */
+
+/* 메인 타이틀 */
+.custom-wrap h1 {
+  font-size: clamp(24px, 2.5vw, 40px);
+  font-family: "YeogiOttaeJalnanGothic";
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 20px 0;
+}
+
+/* 영문 서브타이틀 */
+.custom-wrap h2 {
+  font-size: clamp(16px, 1.5vw, 24px);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+/* 타이틀 본문 */
+.custom-wrap h3 {
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 400;
+  color: #666;
+  line-height: clamp(28px, 1vw, 35px);
+}
+
+/* 히어로 타이틀 */
+.custom-wrap .main h1 {
+  font-size: clamp(24px, 2.5vw, 60px);
+  font-family: "YeogiOttaeJalnanGothic";
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+}
+.custom-wrap .main h2 {
+  font-size: clamp(16px, 1.5vw, 24px);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* 히어로 본문 */
+.custom-wrap .main h3 {
+  font-size: clamp(16px, 1.5vw, 18px);
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 35px;
+}
+
+/* 본문 타이틀 */
+.custom-wrap h4 {
+  font-size: clamp(16px, 1.5vw, 24px);
+  font-weight: 500;
+  color: #333;
+}
+
+/* 본문 서브타이틀 */
+.custom-wrap h5 {
+  font-size: clamp(14px, 1vw, 16px);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+/* 본문 */
+.custom-wrap p {
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 300;
+  color: #666;
+  line-height: clamp(28px, 1vw, 35px);
+}
+
+/* 하이라이트 */
+.custom-wrap .highlight {
+  color: var(--point) !important;
+  font-weight: bold;
+}
+
+/* 색상 반전 */
+.custom-wrap .invert h1,
+.custom-wrap .invert h2,
+.custom-wrap .invert h3,
+.custom-wrap .invert h4,
+.custom-wrap .invert h5 {
+  color: #fff;
+}
+
+.custom-wrap .invert p {
+  color: #ddd;
+}
+
+/* 영문 */
+.jetbrain {
+  font-family: "JetBrains Mono", monospace !important;
+  font-weight: 700 !important;
+}
+
+/* ----------------- */
+/* 02. Structure */
+/* ----------------- */
+
+/* 섹션 패딩 */
+.custom-wrap .section {
+  padding-top: var(--pdy);
+}
+.custom-wrap .section.pb {
+  padding-bottom: var(--pdy);
+}
+
+.custom-wrap .section.main {
+  padding-top: 0;
+}
+
+/* 섹션 타이틀 */
+.custom-wrap .section-title {
+  width: 90%;
+  max-width: var(--maw);
+  margin: 0 auto var(--section-gap);
+  text-align: center;
+}
+
+/* 컨텐츠 컨테이너 */
+.custom-wrap .container {
+  width: 90%;
+  max-width: var(--maw);
+  margin: 0 auto;
+}
+
+/* 컨텐츠 와이드 컨테이너 */
+.custom-wrap .w-container {
+  width: 100%;
+}
+
+/* 와이드 컨테이너 그리드 */
+.custom-wrap .w-container .prod-grid {
+  max-width: var(--maw);
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* 모바일 섹션 타이틀 좌측 정렬 */
+@media (max-width: 768px) {
+  .custom-wrap .section-title {
+    text-align: left;
+  }
+}
+
+/* ----------------- */
+/* 03. Primary Button Default*/
+/* ----------------- */
+.custom-wrap .primary-btn,
+.custom-wrap .primary-btn-w {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+  line-height: 1;
+  width: fit-content;
+  filter: brightness(0.9);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.5s ease;
+}
+.custom-wrap .primary-btn {
+  color: #ddd;
+  background-color: var(--brand);
+}
+.custom-wrap .primary-btn-w {
+  background-color: transparent;
+  color: #ddd;
+  border: 1px solid #ddd;
+}
+.custom-wrap .primary-btn .btn-arrow {
+  width: clamp(10px, 1vw, 12px);
+  height: clamp(10px, 1vw, 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-wrap .primary-btn:hover {
+  filter: brightness(1);
+}
+
+.custom-wrap .primary-btn-w:hover {
+  background-color: var(--brand);
+  color: #fff;
+}
+
+/* ----------------- */
+/* Tabs */
+/* ----------------- */
+.custom-wrap .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 60px;
+}
+.custom-wrap .tab-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #666;
+  font-size: 16px;
+  font-weight: 300;
+}
+.custom-wrap .tab-item:hover {
+  color: var(--brand);
+}
+.custom-wrap .tab-item.active {
+  color: var(--brand);
+  font-weight: 500;
+}
+.custom-wrap .tab-item::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+.custom-wrap .tab-item.active::before {
+  background-color: var(--brand);
+}
+
+/* ----------------- */
+/* Header 임시*/
+/* ----------------- */
+
+#header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  padding: 10px 0;
+  height: 80px;
+}
+
+.header-inner {
+  width: 90%;
+  max-width: var(--maw);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 180px;
+}
+.logo img {
+  object-fit: contain;
+}
+
+.depth1-wrap {
+  display: flex;
+}
+
+.depth1 a {
+  padding: 16px 20px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.depth1 a:hover {
+  color: var(--point);
+  font-weight: 700;
+}
+
+/* ----------------- */
+/* Dropdown */
+/* ----------------- */
+.custom-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  z-index: 999;
+  display: none;
+}
+
+.custom-drop-wrap {
+  width: 90%;
+  max-width: var(--maw);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+.custom-drop-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.custom-drop-item {
+  display: flex;
+}
+.custom-drop-title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.custom-drop-txt {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  flex: 1 1 auto;
+  font-size: 70px;
+  font-weight: 700;
+  color: #f2f2f2;
+  line-height: 1;
+}
+.custom-drop-line {
+  display: block;
+  width: 1px;
+  flex: 1 1 100%;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+}
+
+.custom-drop-link {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.custom-drop-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.custom-drop-menu {
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease;
+}
+.custom-drop-menu.depth2-light {
+  font-weight: 400;
+}
+.custom-drop-menu:hover {
+  color: var(--point);
+}
