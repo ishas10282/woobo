@@ -2,6 +2,56 @@ $(document).ready(function () {
   mainSlide();
   projectAnimation();
 
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+  const sections = gsap.utils.toArray(".section");
+
+  let currentIndex = 0;
+  let isAnimating = false;
+
+  window.addEventListener(
+    "wheel",
+    (e) => {
+      // 애니메이션 중이면 스크롤 완전히 차단
+      if (isAnimating) {
+        e.preventDefault();
+        return;
+      }
+
+      // 스크롤 방향 판단
+      const direction = e.deltaY > 0 ? 1 : -1;
+
+      // 다음 이동할 섹션
+      const nextIndex = currentIndex + direction;
+
+      // 첫 번째 / 마지막 섹션 제한
+      if (nextIndex < 0 || nextIndex >= sections.length) {
+        return;
+      }
+
+      // 기본 스크롤 차단
+      e.preventDefault();
+
+      // 잠금
+      isAnimating = true;
+      currentIndex = nextIndex;
+
+      // 해당 섹션으로 이동
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+          y: sections[currentIndex],
+          autoKill: false,
+        },
+        ease: "power3.inOut",
+
+        onComplete: () => {
+          // 애니메이션 완료 후 잠금 해제
+          isAnimating = false;
+        },
+      });
+    },
+    { passive: false },
+  );
   function projectAnimation() {
     const gridImg = $(".business .grid-item");
     const overTxt = $(".business .overlay-txt");

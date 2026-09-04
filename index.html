@@ -37,7 +37,7 @@
     <!-- GSAP + Scroll Trigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollToPlugin.min.js"></script>
     <!-- Swiper CSS -->
     <link
       rel="stylesheet"
@@ -176,7 +176,7 @@
       </header>
 
       <!-- Main -->
-      <main class="section main">
+      <section class="section main">
         <div class="swiper mainSwiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -264,7 +264,7 @@
 
           <span class="total"></span>
         </div>
-      </main>
+      </section>
 
       <!-- About -->
       <section class="section about pb">
@@ -321,9 +321,11 @@
       <!-- Business -->
       <section class="section business">
         <div class="section-title">
-          <h2>environmental solutions</h2>
-          <h1>환경 현장에 필요한 기술과 서비스를 제공합니다.</h1>
-          <p>
+          <h2 class="fade-right">environmental solutions</h2>
+          <h1 class="fade-left">
+            환경 현장에 필요한 기술과 서비스를 제공합니다.
+          </h1>
+          <p class="fade-right">
             스마트 수질 모니터링부터 탄소중립을 위한 그린모니터링,
             <br />환경 측정기기 컨설팅과 유지관리까지 다양한 환경 분야의 요구에
             맞는 사업을 수행합니다.
@@ -331,13 +333,13 @@
         </div>
         <div class="container">
           <div class="prod-grid">
-            <div class="grid-item">
+            <div class="grid-item fade-up">
               <div class="overlay-txt invert">
                 <h4>스마트 물놀이 수질 전광판</h4>
                 <p>실시간 수질 측정으로 더 안전한 물놀이 환경을 제공합니다.</p>
               </div>
             </div>
-            <div class="grid-item">
+            <div class="grid-item fade-up">
               <div class="overlay-txt invert">
                 <h4>그린 모니터링 시스템</h4>
                 <p>
@@ -346,12 +348,48 @@
                 </p>
               </div>
             </div>
-            <div class="grid-item">
+            <div class="grid-item fade-up">
               <div class="overlay-txt invert">
                 <h4>수질 측정기기 유지 관리</h4>
                 <p>
                   축적된 경험과 전문 기술력으로 안정적인 측정환경을 유지합니다.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gms pb">
+        <div class="section-title">
+          <h2 class="fade-right">GREEN MONITORING SYSTEM</h2>
+          <h1 class="fade-left">효율적인 공정 운영에서 탄소중립까지</h1>
+          <p class="fade-right">
+            하·폐수 처리시설의 각 공정에서 수질 데이터를 확인하고 관리하여
+            처리공정의 상태를 파악하고 효율적인 운영을 지원합니다.<br />공정
+            운영 개선과 에너지 절감을 통해 탄소중립을 실현하고, 향후 AI 기반
+            자동화로 확장할 수 있는 기반을 마련합니다.
+          </p>
+        </div>
+
+        <div class="container">
+          <div class="prod-grid">
+            <div class="grid-item fade-up">
+              <div class="overlay-txt">
+                <h4>수질 측정</h4>
+                <p>유입수와 공정별 수질을 측정하여 처리 상태를 파악합니다.</p>
+              </div>
+            </div>
+            <div class="grid-item fade-up">
+              <div class="overlay-txt">
+                <h4>공정 모니터링</h4>
+                <p>공정별 수질 변화를 지속적으로 확인하고 관리합니다.</p>
+              </div>
+            </div>
+            <div class="grid-item fade-up">
+              <div class="overlay-txt">
+                <h4>공정 최적화</h4>
+                <p>수질 데이터를 기반으로 효율적인 공정 운영을 지원합니다.</p>
               </div>
             </div>
           </div>

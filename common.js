@@ -88,11 +88,14 @@ $(document).ready(function () {
       },
     };
 
-    // Fade, Scale 애니메이션 실행
+    // ==============================
+    // Scroll Animation
+    // ==============================
+
     $(".section").each(function () {
       const section = $(this);
 
-      // 일반 애니메이션 요소
+      // 애니메이션 클래스 선택
       const selector = Object.keys(animations)
         .map((name) => "." + name)
         .join(",");
@@ -102,7 +105,10 @@ $(document).ready(function () {
       // fill-text
       const fillTexts = section.find(".fill-text");
 
-      // 초기 상태
+      // ==============================
+      // 초기 상태 설정
+      // ==============================
+
       items.each(function () {
         const el = $(this);
 
@@ -116,71 +122,122 @@ $(document).ready(function () {
       // fill-text 초기 상태
       if (fillTexts.length) {
         gsap.set(fillTexts, {
-          backgroundPosition: "100% 0",
+          backgroundPosition: "100% 0%",
         });
       }
 
+      // ==============================
+      // 애니메이션 초기화
+      // ==============================
+
+      function resetAnimation() {
+        // 일반 애니메이션 요소 초기화
+        items.each(function () {
+          const el = $(this);
+
+          $.each(animations, function (className, animation) {
+            if (el.hasClass(className)) {
+              // 진행 중인 애니메이션 제거
+              gsap.killTweensOf(el);
+
+              // 초기 상태로 복귀
+              gsap.set(el, animation.from);
+            }
+          });
+        });
+
+        // fill-text 초기화
+        if (fillTexts.length) {
+          gsap.killTweensOf(fillTexts);
+
+          gsap.set(fillTexts, {
+            backgroundPosition: "100% 0%",
+          });
+        }
+      }
+
+      // ==============================
+      // 애니메이션 실행
+      // ==============================
+
+      function playAnimation() {
+        // 일반 요소 애니메이션
+        items.each(function (index) {
+          const el = $(this);
+
+          $.each(animations, function (className, animation) {
+            if (el.hasClass(className)) {
+              // 기존 Tween 제거
+              gsap.killTweensOf(el);
+
+              gsap.to(el, {
+                ...animation.to,
+
+                // 너무 빠르지 않게
+                duration: 2,
+
+                // 부드럽고 자연스러운 등장
+                ease: "power3.out",
+
+                // 요소별 순차 등장
+                delay: index * 0.15,
+
+                overwrite: "auto",
+              });
+            }
+          });
+        });
+
+        // ==============================
+        // fill-text 애니메이션
+        // ==============================
+
+        if (fillTexts.length) {
+          gsap.killTweensOf(fillTexts);
+
+          gsap.to(fillTexts, {
+            backgroundPosition: "0% 0%",
+
+            duration: 1.2,
+
+            ease: "power3.out",
+
+            // 순차적으로 텍스트 채우기
+            stagger: 0.18,
+
+            delay: 0.1,
+
+            overwrite: "auto",
+          });
+        }
+      }
+
+      // ==============================
+      // ScrollTrigger
+      // ==============================
+
       ScrollTrigger.create({
         trigger: section,
-        start: "top 50%",
+
+        // 화면에 어느 정도 들어왔을 때 실행
+        start: "top 70%",
+
+        // 거의 화면을 벗어났을 때 초기화
+        end: "bottom 30%",
+
         // markers: true,
 
-        onEnter: () => {
-          // 기존 애니메이션
-          items.each(function (index) {
-            const el = $(this);
+        // 아래 방향으로 진입
+        onEnter: playAnimation,
 
-            $.each(animations, function (className, animation) {
-              if (el.hasClass(className)) {
-                gsap.killTweensOf(el);
+        // 위 방향으로 재진입
+        onEnterBack: playAnimation,
 
-                gsap.to(el, {
-                  ...animation.to,
-                  duration: 0.8,
-                  ease: "power2.out",
-                  delay: index * 0.15,
-                  overwrite: "auto",
-                });
-              }
-            });
-          });
+        // 아래 방향으로 섹션 이탈
+        onLeave: resetAnimation,
 
-          // fill-text 순차 애니메이션
-          if (fillTexts.length) {
-            gsap.killTweensOf(fillTexts);
-
-            gsap.to(fillTexts, {
-              backgroundPosition: "0% 0",
-              duration: 1,
-              ease: "power2.out",
-              stagger: 0.3,
-              overwrite: "auto",
-            });
-          }
-        },
-
-        onLeaveBack: () => {
-          // 기존 요소 초기화
-          items.each(function () {
-            const el = $(this);
-
-            $.each(animations, function (className, animation) {
-              if (el.hasClass(className)) {
-                gsap.killTweensOf(el);
-                gsap.set(el, animation.from);
-              }
-            });
-          });
-
-          // fill-text 초기화
-          if (fillTexts.length) {
-            gsap.killTweensOf(fillTexts);
-
-            gsap.set(fillTexts, {
-              backgroundPosition: "100% 0",
-            });
-          }
-        },
+        // 위 방향으로 섹션 이탈
+        onLeaveBack: resetAnimation,
       });
     });
   }
