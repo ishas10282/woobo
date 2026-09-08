@@ -1,6 +1,214 @@
 $(document).ready(function () {
   scrollTrigger();
+  // sectionScroll();
+  cafe24custom();
   customDropdown();
+
+  function cafe24custom() {
+    const $nav = $("#header .inner .top_nav_box .top_mypage");
+    const $header = $("#header");
+    const $topCategory = $(".top_category > ul");
+    if (!$header.find(".custom-dropdown").length) {
+      $header.prepend(`
+		   <div class="custom-dropdown">
+          <div class="custom-drop-wrap">
+            <div class="custom-drop-grid">
+              <div class="custom-drop-item">
+                <div class="custom-drop-title">
+                  <span class="custom-drop-txt">ABOUT</span>
+                  <span class="custom-drop-line"></span>
+                </div>
+                <div class="custom-drop-link">
+                  <ul class="custom-drop-list">
+                    <li>
+                      <a class="custom-drop-menu" href="">ABOUT US</a>
+                    </li>
+                    <li>
+                      <a class="custom-drop-menu" href="">연혁</a>
+                    </li>
+                    <li>
+                      <a class="custom-drop-menu" href="">조직도</a>
+                    </li>
+                    <li>
+                      <a class="custom-drop-menu" href="">찾아오시는 길</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="custom-drop-item">
+                <div class="custom-drop-title">
+                  <span class="custom-drop-txt">BUSINESS</span>
+                  <span class="custom-drop-line"></span>
+                </div>
+                <div class="custom-drop-link">
+                  <ul class="custom-drop-list">
+                    <li>
+                      <a class="custom-drop-menu" href=""
+                        >스마트 물놀이 수질 전광판</a
+                      >
+                    </li>
+                    <li>
+                      <a class="custom-drop-menu" href=""
+                        >그린 모니터링 시스템</a
+                      >
+                    </li>
+                    <li>
+                      <a class="custom-drop-menu" href=""
+                        >환경 측정기기 컨설팅</a
+                      >
+                    </li>
+                    <li>
+                      <a class="custom-drop-menu" href=""
+                        >수질 측정기기 유지관리</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="custom-drop-item">
+                <div class="custom-drop-title">
+                  <span class="custom-drop-txt">R&D</span>
+                  <span class="custom-drop-line"></span>
+                </div>
+                <div class="custom-drop-link">
+                  <ul class="custom-drop-list">
+                    <li>
+                      <a class="custom-drop-menu" href="">기업 부설 연구소</a>
+                    </li>
+                    <li>
+                      <a class="custom-drop-menu" href="">인증서 및 특허</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="custom-drop-item">
+                <div class="custom-drop-title">
+                  <span class="custom-drop-txt">SERVICE</span>
+                  <span class="custom-drop-line"></span>
+                </div>
+                <div class="custom-drop-link">
+                  <ul class="custom-drop-list">
+                    <li>
+                      <a class="custom-drop-menu" href="">공지사항</a>
+                    </li>
+                    <li>
+                      <a class="custom-drop-menu" href="">1:1 문의</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+		`);
+    }
+
+    const $customDrop = $header.find(".custom-dropdown");
+    const $logo = $header.find(".logo img");
+
+    let isHover = false;
+    let isScrolled = false;
+
+    // 헤더 상태 업데이트
+    function updateHeader() {
+      const isActive = isHover || isScrolled;
+
+      $header.toggleClass("active", isActive);
+
+      // 로고 변경
+      if (isActive) {
+        $logo.attr("src", "img/logo.png");
+      } else {
+        $logo.attr("src", "img/logow.png");
+      }
+    }
+
+    // 스크롤 상태 체크
+    function checkScroll() {
+      isScrolled = $(window).scrollTop() > 0;
+
+      updateHeader();
+    }
+
+    // 헤더 마우스 진입
+    $header.on("mouseenter", function () {
+      isHover = true;
+
+      $customDrop.stop(true, true).slideDown(300);
+
+      updateHeader();
+    });
+
+    // 헤더 마우스 이탈
+    $header.on("mouseleave", function () {
+      isHover = false;
+
+      $customDrop.stop(true, true).slideUp(300);
+
+      updateHeader();
+    });
+
+    // 스크롤 이벤트
+    $(window).on("scroll", function () {
+      checkScroll();
+    });
+
+    // 최초 로드 시 상태 적용
+    checkScroll();
+  }
+
+  function sectionScroll() {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    const sections = gsap.utils.toArray(".section");
+
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    window.addEventListener(
+      "wheel",
+      (e) => {
+        // 애니메이션 중이면 스크롤 완전히 차단
+        if (isAnimating) {
+          e.preventDefault();
+          return;
+        }
+
+        // 스크롤 방향 판단
+        const direction = e.deltaY > 0 ? 1 : -1;
+
+        // 다음 이동할 섹션
+        const nextIndex = currentIndex + direction;
+
+        // 첫 번째 / 마지막 섹션 제한
+        if (nextIndex < 0 || nextIndex >= sections.length) {
+          return;
+        }
+
+        // 기본 스크롤 차단
+        e.preventDefault();
+
+        // 잠금
+        isAnimating = true;
+        currentIndex = nextIndex;
+
+        // 해당 섹션으로 이동
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: {
+            y: sections[currentIndex],
+            autoKill: false,
+          },
+          ease: "power3.inOut",
+
+          onComplete: () => {
+            // 애니메이션 완료 후 잠금 해제
+            isAnimating = false;
+          },
+        });
+      },
+      { passive: false },
+    );
+  }
 
   function customDropdown() {
     const $customMenu = $(".custom-menu-all");
@@ -34,6 +242,11 @@ $(document).ready(function () {
 
       "fade-up": {
         from: { y: 50, opacity: 0 },
+        to: { y: 0, opacity: 1 },
+      },
+
+      "fade-down": {
+        from: { y: -50, opacity: 0 },
         to: { y: 0, opacity: 1 },
       },
 
