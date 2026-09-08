@@ -1,6 +1,6 @@
 $(document).ready(function () {
   scrollTrigger();
-  // sectionScroll();
+  sectionScroll();
   cafe24custom();
   customDropdown();
 

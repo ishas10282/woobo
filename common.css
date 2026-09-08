@@ -280,6 +280,7 @@ a {
 /* .primary-btn::before {
   content: "VIEW MORE";
 } */
+
 .primary-btn::after {
   content: "\f105";
   font-family: "Font Awesome 7 Free";
@@ -457,7 +458,7 @@ a {
 }
 
 .header.active {
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .header.active .depth1 a {
