@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>우보 환경 시스템 | 환경측정·수질관리 전문기업</title>
+    <link
+      rel="icon"
+      href="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/favicon.ico?=v2"
+      type="image/x-icon"
+    />
+
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- GSAP + Scroll Trigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollToPlugin.min.js"></script>
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+    <link rel="stylesheet" href="water-display.css" />
+    <script src="water-display.js"></script>
+    <style>
+      /* FONT-AWESOME */
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
+    </style>
+  </head>
+  <body>
+    <div class="custom-wrap">
+      <!-- Header -->
+      <header id="header" class="header">
+        <div class="header-inner">
+          <div class="logo">
+            <a href="index.html"
+              ><img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/logow.png"
+                alt="logo"
+            /></a>
+          </div>
+          <div class="gnb">
+            <ul class="depth1-wrap">
+              <li class="depth1">
+                <a href="water-display.html"
+                  ><span class="highlight">스마트 물놀이 수질 전광판</span></a
+                >
+              </li>
+              <li class="depth1">
+                <a href="about.html"><span>회사소개</span></a>
+              </li>
+              <li class="depth1">
+                <a href="water-display.html"><span>사업소개</span></a>
+              </li>
+              <li class="depth1">
+                <a href="rnd.html"><span>연구개발</span></a>
+              </li>
+              <li class="depth1">
+                <a href="#none"><span>고객지원</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <section class="section main">
+        <div class="container">
+          <div class="hero-title">
+            <h2 class="fade-left">REAL-TIME WATER QUALITY MONITORING</h2>
+            <div class="title-txt fade-left">
+              <h1>안전한 물놀이를 위한</h1>
+              <h1>실시간 수질정보 공개</h1>
+            </div>
+            <h3 class="fade-left">
+              물놀이형 수경시설의 수질 상태를 실시간으로 측정하고 공개하여<br />시민에게는
+              신뢰를, 관리자에게는 효율적인 시설 운영을 제공합니다.
+            </h3>
+          </div>
+          <div class="video-wrap">
+            <video
+              src="https://cdn.jsdelivr.net/gh/ishas10282/woobo@main/img/video-03.mp4"
+              autoplay
+              muted
+              playsinline
+              loop
+              preload="metadata"
+            ></video>
+
+            <button type="button" class="video-sound" aria-label="소리 켜기">
+              <i class="fa-solid fa-volume-xmark sound-off"></i>
+              <i class="fa-solid fa-volume-high sound-on"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problem -->
+      <section class="section problem">
+        <video
+          src="https://cdn.jsdelivr.net/gh/ishas10282/woobo@main/img/video-04.mp4"
+          autoplay
+          muted
+          playsinline
+          loop
+          preload="metadata"
+        ></video>
+      </section>
+
+      <!-- Process -->
+      <section class="section process">
+        <div class="section-title">
+          <h2 class="fade-right">REAL-TIME DATA PROCESSING</h2>
+          <h1 class="fade-left">데이터를 모으고, 상태를 판단합니다.</h1>
+          <p class="fade-right">
+            현장의 수질 데이터를 실시간으로 수집·측정하고<br />설정된 기준에
+            따라 현재 수질 상태를 판단합니다.
+          </p>
+        </div>
+        <div class="process-line">
+          <div class="process-fill scale-right"></div>
+        </div>
+        <div class="container">
+          <div class="prod-grid">
+            <div class="grid-item fade-left">
+              <div class="grid-num invert gray-scale">
+                <h4 class="jetbrain">01</h4>
+              </div>
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-icon-01.png"
+                  alt="process"
+                />
+              </div>
+              <div class="grid-txt">
+                <div class="item-title">
+                  <h5>DATA</h5>
+                  <h4>수집</h4>
+                </div>
+                <p>
+                  현장에서 발생하는 수질 데이터를 실시간으로 수집하여 측정
+                  정보를 확보합니다.
+                </p>
+              </div>
+            </div>
+            <div class="grid-item fade-left">
+              <div class="grid-num invert gray-scale">
+                <h4 class="jetbrain">02</h4>
+              </div>
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-icon-02.png"
+                  alt="process"
+                />
+              </div>
+              <div class="grid-txt">
+                <div class="item-title">
+                  <h5>MEASURE</h5>
+                  <h4>측정</h4>
+                </div>
+                <p>
+                  pH, 탁도, 잔류염소 등 주요 수질 항목을 측정하여 현재 수질
+                  상태를 확인합니다.
+                </p>
+              </div>
+            </div>
+            <div class="grid-item fade-left">
+              <div class="grid-num invert gray-scale">
+                <h4 class="jetbrain">03</h4>
+              </div>
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-icon-03.png"
+                  alt="process"
+                />
+              </div>
+              <div class="grid-txt">
+                <div class="item-title">
+                  <h5>ANALYZE</h5>
+                  <h4>판단</h4>
+                </div>
+                <p>
+                  현장에서 발생하는 수질 데이터를 실시간으로 수집하여 측정
+                  정보를 확보합니다.
+                </p>
+              </div>
+            </div>
+            <div class="grid-item fade-left">
+              <div class="grid-num invert gray-scale">
+                <h4 class="jetbrain">04</h4>
+              </div>
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-icon-04.png"
+                  alt="process"
+                />
+              </div>
+              <div class="grid-txt">
+                <div class="item-title">
+                  <h5>DISPLAY</h5>
+                  <h4>표시</h4>
+                </div>
+                <p>
+                  판단된 수질 상태를 아이콘과 텍스트로 변환하여 전광판에
+                  실시간으로 표시합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Display -->
+      <section class="section display">
+        <div class="section-title">
+          <h2 class="fade-right">WATER QUALITY DISPLAY</h2>
+          <h1 class="fade-left">수질 상태를 한눈에 보여줍니다.</h1>
+          <p class="fade-right">
+            물놀이형 수경시설의 수질기준 측정 항목 3개(pH, 탁도, 잔류염소)을
+            포함한<br />
+            총 5가지 항목을 센서형 수질측정기 1대로 측정합니다.
+          </p>
+        </div>
+        <div class="container">
+          <div class="prod-grid fade-up">
+            <div class="grid-item">
+              <img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-03.jpg"
+                alt="display"
+              />
+            </div>
+            <div class="grid-item">
+              <div class="arrow right-arrow">
+                <span>수집</span>
+              </div>
+
+              <div class="arrow left-arrow">
+                <span>측정·판단</span>
+              </div>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-04.jpg"
+                alt="display"
+              />
+            </div>
+            <div class="grid-item">
+              <div class="arrow right-arrow">
+                <span>표시</span>
+              </div>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-05.jpg"
+                alt="display"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Icons -->
+      <section class="section icons pb">
+        <div class="section-title">
+          <h2 class="fade-right">INTUITIVE WATER QUALITY</h2>
+          <h1 class="fade-left">직관적인 수질 아이콘</h1>
+          <p class="fade-right">
+            물놀이시설 수질을 친근감 있는 아이콘을 통해 이용자에게 표출하여
+            이용자가 실시간 수질상태를 확인합니다.
+          </p>
+        </div>
+
+        <div class="w-container fade-up">
+          <div class="icons-line"></div>
+          <div class="prod-grid">
+            <div class="grid-item">
+              <img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-06.png"
+                alt=""
+              />
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-07.png"
+                alt=""
+              />
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-08.png"
+                alt=""
+              />
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-09.png"
+                alt=""
+              />
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-10.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="comment fade-up">
+          <p>
+            * 법적 기준 및 자체 기준을 설정해 범위에 따른 수질아이콘을
+            표출합니다.
+          </p>
+          <p>
+            * 지역별 마스코트 활용하여 디자인 작업 후 전광판 표출 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- 24 Hours -->
+      <section class="section hours invert pb">
+        <div class="section-title">
+          <h2 class="fade-right">BEYOND OPERATING HOURS</h2>
+          <h1 class="fade-left">24 HOURS</h1>
+          <p class="fade-right">
+            물놀이시설 운영기간(약 2~3개월)을 포함하여 365일 1년 내내 전광판
+            활용 할 수 있는 시스템입니다.
+          </p>
+        </div>
+        <div class="container">
+          <div class="prod-grid">
+            <div class="grid-item fade-up">
+              <div class="grid-txt">
+                <div class="grid-icon">
+                  <img
+                    src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-title.png"
+                    alt="title-icon"
+                  />
+                </div>
+                <h4>수질정보</h4>
+              </div>
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-12.jpg"
+                  alt="display"
+                />
+              </div>
+            </div>
+            <div class="grid-item fade-up">
+              <div class="grid-txt">
+                <div class="grid-icon">
+                  <img
+                    src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-title.png"
+                    alt="title-icon"
+                  />
+                </div>
+                <h4>기상정보</h4>
+              </div>
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-13.jpg"
+                  alt="display"
+                />
+              </div>
+            </div>
+            <div class="grid-item fade-up">
+              <div class="grid-txt">
+                <div class="grid-icon">
+                  <img
+                    src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-title.png"
+                    alt="title-icon"
+                  />
+                </div>
+                <h4>시정소식(이미지)</h4>
+              </div>
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-14.jpg"
+                  alt="display"
+                />
+              </div>
+            </div>
+            <div class="grid-item fade-up">
+              <div class="grid-txt">
+                <div class="grid-icon">
+                  <img
+                    src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-title.png"
+                    alt="title-icon"
+                  />
+                </div>
+                <h4>시정소식(텍스트)</h4>
+              </div>
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-15.jpg"
+                  alt="display"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 365 Days -->
+      <section class="section days">
+        <div class="section-title">
+          <h2 class="fade-right">YEAR-ROUND UTILIZATION</h2>
+          <h1 class="fade-left">365 DAYS</h1>
+          <p class="fade-right">
+            물놀이시설 미운영기간(약 10개월)에는 공공기관 및 주거시설 공급 상수
+            모니터링으로 활용 할 수 있는 시스템입니다.
+          </p>
+        </div>
+        <div class="container">
+          <div class="prod-grid">
+            <div class="grid-item fade-up">
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-16.jpg"
+                  alt="days"
+                />
+              </div>
+              <div class="grid-txt">
+                <h4>학교</h4>
+              </div>
+            </div>
+            <div class="grid-item fade-up">
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-17.jpg"
+                  alt="days"
+                />
+              </div>
+              <div class="grid-txt">
+                <h4>도서관</h4>
+              </div>
+            </div>
+            <div class="grid-item fade-up">
+              <div class="grid-img">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-18.jpg"
+                  alt="days"
+                />
+              </div>
+              <div class="grid-txt">
+                <h4>주거시설</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment fade-up">
+          <p>* 물놀이시설 운영기간 종료 후 수질측정기 이전 설치 필요.</p>
+        </div>
+      </section>
+
+      <!-- Admin -->
+      <section class="section admin pb">
+        <div class="section-title">
+          <h2 class="fade-right">SMART PUBLIC FACILITY</h2>
+          <h1 class="fade-left">공공시설 관리의 새로운 기준</h1>
+          <p class="fade-right">
+            실시간 수질정보를 한곳에서 확인하고 관리할 수 있도록 시설 운영에
+            필요한 주요 정보를 관리자 화면으로 제공합니다.
+          </p>
+        </div>
+        <div class="container">
+          <div class="swiper adminSwiper fade-up">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-19.jpg"
+                  alt="admin"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/wqm-20.jpg"
+                  alt="admin"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="prod-grid fade-up">
+            <div class="grid-item">
+              <h4><span class="jetbrain">01</span>실시간 수질현황</h4>
+              <p>
+                시설별 수질 측정값과 현재 상태를 실시간으로 확인하고 기준에 따른
+                수질 상태를 직관적으로 파악할 수 있습니다.
+              </p>
+            </div>
+            <div class="grid-item">
+              <h4><span class="jetbrain">02</span>측정 데이터 조회</h4>
+              <p>
+                기간별 수질 측정 데이터를 조회하고 시설별 ·항목별 변화 추이를
+                확인할 수 있습니다.
+              </p>
+            </div>
+            <div class="grid-item">
+              <h4><span class="jetbrain">03</span>전광판 콘텐츠 관리</h4>
+              <p>
+                수질정보뿐만 아니라 날씨, 시정소식 등 운영 환경에 맞는 전광판
+                콘텐츠를 관리할 수 있습니다.
+              </p>
+            </div>
+            <div class="grid-item">
+              <h4><span class="jetbrain">04</span>기준 및 상태 관리</h4>
+              <p>
+                법적 기준 및 자체 관리기준을 설정하고 측정값에 따른 수질 상태를
+                체계적으로 관리할 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section cta invert">
+        <div class="container">
+          <div class="cta-title">
+            <h1>
+              환경 측정에 대한 고민,<br />
+              우보환경시스템과 함께 해결하세요.
+            </h1>
+            <p>
+              우보환경시스템은 지속적인 기술 개발과 현장 경험을 바탕으로<br />특허와
+              인증을 확보하며 환경계측 전문기업으로서의 역량을 강화하고
+              있습니다.
+            </p>
+          </div>
+          <div class="cta-btn">
+            <div class="primary-btn">사업 문의</div>
+            <div class="primary-btn">기술 문의</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

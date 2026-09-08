@@ -21,16 +21,16 @@ $(document).ready(function () {
                 <div class="custom-drop-link">
                   <ul class="custom-drop-list">
                     <li>
-                      <a class="custom-drop-menu" href="">ABOUT US</a>
+                      <a class="custom-drop-menu" href="about.html">ABOUT US</a>
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href="">연혁</a>
+                      <a class="custom-drop-menu" href="history.html">연혁</a>
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href="">조직도</a>
+                      <a class="custom-drop-menu" href="org.html">조직도</a>
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href="">찾아오시는 길</a>
+                      <a class="custom-drop-menu" href="locate.html">찾아오시는 길</a>
                     </li>
                   </ul>
                 </div>
@@ -43,22 +43,17 @@ $(document).ready(function () {
                 <div class="custom-drop-link">
                   <ul class="custom-drop-list">
                     <li>
-                      <a class="custom-drop-menu" href=""
+                      <a class="custom-drop-menu" href="water-display.html"
                         >스마트 물놀이 수질 전광판</a
                       >
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href=""
+                      <a class="custom-drop-menu" href="gms.html"
                         >그린 모니터링 시스템</a
                       >
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href=""
-                        >환경 측정기기 컨설팅</a
-                      >
-                    </li>
-                    <li>
-                      <a class="custom-drop-menu" href=""
+                      <a class="custom-drop-menu" href="maintenance.html"
                         >수질 측정기기 유지관리</a
                       >
                     </li>
@@ -73,10 +68,10 @@ $(document).ready(function () {
                 <div class="custom-drop-link">
                   <ul class="custom-drop-list">
                     <li>
-                      <a class="custom-drop-menu" href="">기업 부설 연구소</a>
+                      <a class="custom-drop-menu" href="rnd.html">기업 부설 연구소</a>
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href="">인증서 및 특허</a>
+                      <a class="custom-drop-menu" href="cert.html">인증서 및 특허</a>
                     </li>
                   </ul>
                 </div>
@@ -230,6 +225,10 @@ $(document).ready(function () {
   function scrollTrigger() {
     // Fade, Scale 통합 애니메이션 설정
     const animations = {
+      "gray-scale": {
+        from: { filter: "grayscale(100%)" },
+        to: { filter: "grayscale(0%)" },
+      },
       "slide-in": {
         from: { x: "100%", opacity: 0 },
         to: { x: 0, opacity: 1 },
@@ -436,7 +435,7 @@ $(document).ready(function () {
         start: "top 70%",
 
         // 거의 화면을 벗어났을 때 초기화
-        end: "bottom 30%",
+        end: "bottom 20%",
 
         // markers: true,
 

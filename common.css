@@ -26,7 +26,7 @@
 /* 00. Root */
 /* ----------------- */
 :root {
-  --deep: #004015;
+  --point1: #0b8e36;
   --brand: #00501a;
   --brand2: #0e6eff;
   --point: #00e5ff;
@@ -145,7 +145,7 @@ a {
   font-family: "JetBrains Mono", monospace;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--brand);
+  color: #999;
 }
 
 /* 본문 한글 서브타이틀 */
@@ -165,7 +165,7 @@ a {
 
 /* 하이라이트 */
 .custom-wrap .highlight {
-  color: var(--point) !important;
+  /* color: var(--point2) !important; */
   font-weight: bold;
 }
 
@@ -186,6 +186,7 @@ a {
 .jetbrain {
   font-family: "JetBrains Mono", monospace !important;
   font-weight: 700 !important;
+  color: var(--brand);
 }
 
 /* ----------------- */
@@ -411,6 +412,27 @@ a {
   background-color: var(--brand);
 }
 
+/* CTA */
+.section.cta {
+  padding: 60px 0;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/contact.jpg")
+      center / cover no-repeat;
+}
+.cta .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-btn .primary-btn {
+  border: 1px solid #ddd;
+  color: #ddd;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
 /* ----------------- */
 /* Header 임시*/
 /* ----------------- */
@@ -452,17 +474,17 @@ a {
   transition: all 0.3s ease;
 }
 
-.depth1 a:hover {
-  color: var(--brand);
-  font-weight: 700;
-}
-
 .header.active {
   background-color: #fff;
 }
 
 .header.active .depth1 a {
   color: #333;
+}
+
+.header .depth1 a:hover {
+  color: var(--brand);
+  font-weight: 700;
 }
 
 /* ----------------- */
