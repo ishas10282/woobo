@@ -164,7 +164,8 @@
 .about {
   background:
     linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-    url("img/index-02.jpg") center / cover no-repeat;
+    url("https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-02.jpg")
+      center / cover no-repeat;
   overflow-x: clip;
 }
 
@@ -219,17 +220,17 @@
 }
 
 .business .grid-item:nth-child(1) {
-  background-image: url("img/business-1.jpg");
+  background-image: url("https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/business-1.jpg");
   background-size: cover;
   background-position: 0% center;
 }
 .business .grid-item:nth-child(2) {
-  background-image: url("img/business-2.jpg");
+  background-image: url("https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/business-2.jpg");
   background-size: cover;
   background-position: center center;
 }
 .business .grid-item:nth-child(3) {
-  background-image: url("img/business-3.jpg");
+  background-image: url("https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/business-3.jpg");
   background-size: cover;
   background-position: 100% center;
 }
@@ -275,7 +276,8 @@
 
 /* SOLUTION */
 .solution {
-  background: url(img/index-03.jpg) center/cover no-repeat;
+  background: url(https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-03.jpg)
+    center/cover no-repeat;
 }
 
 .solution .section-title {
@@ -413,7 +415,8 @@
   padding: 60px 0;
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("img/contact.jpg") center / cover no-repeat;
+    url("https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/contact.jpg")
+      center / cover no-repeat;
 }
 .cta .container {
   display: flex;

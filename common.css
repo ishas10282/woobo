@@ -458,7 +458,7 @@ a {
 }
 
 .header.active {
-  /* background-color: #fff; */
+  background-color: #fff;
 }
 
 .header.active .depth1 a {
