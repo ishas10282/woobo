@@ -1,13 +1,442 @@
 $(document).ready(function () {
-  scrollTrigger();
   // sectionScroll();
-  cafe24custom();
-  customDropdown();
+  customHeader();
+  scrollTrigger();
+  initTabFromURL();
 
-  function cafe24custom() {
-    const $nav = $("#header .inner .top_nav_box .top_mypage");
+  function initTabFromURL() {
+    const tabParam = new URLSearchParams(window.location.search).get("tab");
+
+    const $tabs = $(".sub-tab");
+    const $panels = $(".tab-panel");
+
+    // 모든 active 제거
+    $tabs.removeClass("active");
+    $panels.removeClass("active").hide();
+
+    // URL에 tab이 없는 경우
+    // 기본 탭을 about으로 지정
+    const targetTab = tabParam || $tabs.first().data("tab");
+
+    const $targetTab = $tabs.filter(`[data-tab="${targetTab}"]`);
+
+    const $targetPanel = $panels.filter(`[data-panel="${targetTab}"]`);
+
+    if (!$targetTab.length || !$targetPanel.length) {
+      return;
+    }
+
+    // 바로 active
+    $targetTab.addClass("active");
+    $targetPanel.addClass("active").show();
+
+    // Hero
+    const title = $targetTab.data("title");
+    const bg = $targetTab.data("bg");
+
+    $(".sub-hero__content h1").text(title);
+
+    $(".sub-hero__bg").css("background-image", `url("${bg}")`);
+  }
+
+  /* =========================================
+     페이지 이동 + 탭 전달
+  ========================================= */
+
+  $(document).on("click", ".page-link", function () {
+    const page = $(this).data("page");
+    const tab = $(this).data("tab");
+
+    if (!page) return;
+
+    let url = `${page}.html`;
+
+    if (tab) {
+      url += `?tab=${encodeURIComponent(tab)}`;
+    }
+
+    window.location.href = url;
+  });
+
+  /* =========================================
+     서브 탭
+  ========================================= */
+
+  $(".sub-tab").on("click", function () {
+    const $tab = $(this);
+
+    const target = $tab.data("tab");
+    const title = $tab.data("title");
+    const bg = $tab.data("bg");
+
+    const $heroTitle = $(".sub-hero__content h1");
+    const $heroBg = $(".sub-hero__bg");
+    const $targetPanel = $(`.tab-panel[data-panel="${target}"]`);
+
+    if ($tab.hasClass("active")) return;
+
+    $(".sub-tab").removeClass("active");
+    $tab.addClass("active");
+
+    $heroTitle.stop(true, true).fadeOut(150, function () {
+      $(this).text(title).fadeIn(250);
+    });
+
+    $heroBg.stop(true, true).fadeTo(200, 0, function () {
+      $(this).css("background-image", `url("${bg}")`).fadeTo(400, 1);
+    });
+
+    $(".tab-panel.active")
+      .stop(true, true)
+      .fadeOut(200, function () {
+        $(this).removeClass("active");
+
+        $targetPanel.addClass("active").hide().fadeIn(300);
+      });
+  });
+
+  /* =========================================
+     URL의 tab 값으로 탭 자동 활성화
+  ========================================= */
+
+  const tabParam = new URLSearchParams(window.location.search).get("tab");
+
+  if (tabParam) {
+    const $targetTab = $(`.sub-tab[data-tab="${tabParam}"]`);
+
+    if ($targetTab.length) {
+      $targetTab.trigger("click");
+    }
+  }
+
+  // Fixed 버튼
+  $(function () {
+    // ========================================
+    // Floating Contact Button
+    // ========================================
+
+    const floatingMenu = `
+  <div class="floating-menu">
+
+    <div class="floating-actions">
+
+      <a href="tel:031-697-8299" class="floating-btn phone">
+        <i class="fa-solid fa-phone"></i>
+        <span>전화문의</span>
+      </a>
+
+      <a href="mailto:woobosys@woobosys.com" class="floating-btn mail">
+        <i class="fa-solid fa-envelope"></i>
+        <span>메일문의</span>
+      </a>
+
+      <!-- 팩스 -->
+      <button type="button" class="floating-btn fax" data-fax>
+        <i class="fa-solid fa-fax"></i>
+        <span>팩스번호</span>
+      </button>
+
+      <a href="/contact.html" class="floating-btn inquiry">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span>1:1 문의</span>
+      </a>
+
+    </div>
+
+    <button type="button" class="floating-toggle" aria-label="문의 메뉴 열기">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <button type="button" class="floating-top" aria-label="페이지 상단으로 이동">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+  </div>
+
+  <!-- 팩스번호 팝업 -->
+  <div class="fax-modal">
+    <div class="fax-modal-dim"></div>
+
+    <div class="fax-modal-box">
+
+      <button type="button" class="fax-modal-close" aria-label="닫기">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="fax-modal-icon">
+        <i class="fa-solid fa-fax"></i>
+      </div>
+
+      <p class="fax-modal-label">FAX</p>
+      <strong class="fax-modal-number">0504-248-3046</strong>
+
+      <button type="button" class="fax-copy">
+        <i class="fa-regular fa-copy"></i>
+        번호 복사
+      </button>
+
+    </div>
+  </div>
+`;
+
+    $("body").append(floatingMenu);
+
+    /* ========================================
+   팩스번호 팝업
+======================================== */
+
+    $("[data-fax]").on("click", function () {
+      $(".fax-modal").addClass("is-open");
+      $("body").addClass("modal-open");
+    });
+
+    /* 팝업 닫기 */
+    $(".fax-modal-close, .fax-modal-dim").on("click", function () {
+      $(".fax-modal").removeClass("is-open");
+      $("body").removeClass("modal-open");
+    });
+
+    /* ========================================
+   팩스번호 복사
+======================================== */
+
+    $(".fax-copy").on("click", function () {
+      const faxNumber = $(".fax-modal-number").text().trim();
+
+      navigator.clipboard.writeText(faxNumber).then(function () {
+        const button = $(".fax-copy");
+
+        button.html(`
+      <i class="fa-solid fa-check"></i>
+      복사되었습니다
+    `);
+
+        setTimeout(function () {
+          button.html(`
+        <i class="fa-regular fa-copy"></i>
+        번호 복사
+      `);
+        }, 1500);
+      });
+    });
+
+    // ========================================
+    // 문의 메뉴 열기 / 닫기
+    // ========================================
+
+    $(".floating-toggle").on("click", function () {
+      $(".floating-menu").toggleClass("is-open");
+
+      const isOpen = $(".floating-menu").hasClass("is-open");
+
+      $(this).attr("aria-label", isOpen ? "문의 메뉴 닫기" : "문의 메뉴 열기");
+    });
+
+    // ========================================
+    // TOP 버튼
+    // ========================================
+
+    $(".floating-top").on("click", function () {
+      $("html, body").animate(
+        {
+          scrollTop: 0,
+        },
+        600,
+      );
+    });
+
+    // ========================================
+    // 스크롤 시 TOP 버튼 표시
+    // ========================================
+
+    $(window).on("scroll", function () {
+      if ($(this).scrollTop() > 300) {
+        $(".floating-top").addClass("is-visible");
+      } else {
+        $(".floating-top").removeClass("is-visible");
+      }
+    });
+
+    // ========================================
+    // 문의 버튼 클릭 후 메뉴 닫기
+    // ========================================
+
+    $(".floating-actions a").on("click", function () {
+      $(".floating-menu").removeClass("is-open");
+    });
+  });
+
+  // 공통
+  function customHeader() {
+    // 1차메뉴
+    const Header = `
+      <header id="header" class="header">
+        <div class="header-inner">
+          <div class="logo">
+            <a href="index.html"
+              ><img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/logow.png"
+                alt="logo"
+            /></a>
+          </div>
+          <div class="gnb">
+            <ul class="depth1-wrap">
+              <li class="depth1">
+                <a href="water-display.html"
+                  ><span style="font-weight: 500;">스마트 물놀이 수질 전광판</span></a
+                >
+              </li>
+              <li class="depth1">
+                <a class="page-link" data-page="about" data-tab="about"
+                  ><span>회사소개</span></a
+                >
+              </li>
+              <li class="depth1">
+                <a href="water-display.html"><span>사업소개</span></a>
+              </li>
+              <li class="depth1">
+                <a class="page-link" data-page="cert" data-tab="cert"
+                  ><span>연구개발</span></a
+                >
+              </li>
+              <li class="depth1">
+                <a href="#none"><span>고객지원</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+`;
+
+    $(".custom-wrap").append(Header);
+
+    // 푸터
+    const Footer = `
+            <div class="explore">
+        <div class="container">
+          <div class="exp-grid">
+            <ul class="exp-list">
+              <li>
+                <a class="exp-menu page-link" data-page="about" data-tab="about"
+                  >회사소개</a
+                >
+              </li>
+              <li>
+                <a class="exp-menu page-link" data-page="about" data-tab="about"
+                  >ABOUT US</a
+                >
+              </li>
+              <li>
+                <a
+                  class="exp-menu page-link"
+                  data-page="about"
+                  data-tab="history"
+                  >연혁</a
+                >
+              </li>
+              <li>
+                <a
+                  class="exp-menu page-link"
+                  data-page="about"
+                  data-tab="organization"
+                  >조직도</a
+                >
+              </li>
+              <li>
+                <a
+                  class="exp-menu page-link"
+                  data-page="about"
+                  data-tab="location"
+                >
+                  찾아오시는 길</a
+                >
+              </li>
+            </ul>
+            <ul class="exp-list">
+              <li>
+                <a class="exp-menu page-link" data-page="water-display"
+                  >사업소개</a
+                >
+              </li>
+              <li>
+                <a class="exp-menu page-link" data-page="water-display"
+                  >스마트 물놀이 수질 전광판</a
+                >
+              </li>
+              <li>
+                <a class="exp-menu page-link" data-page="gms"
+                  >그린 모니터링 시스템</a
+                >
+              </li>
+              <li>
+                <a class="exp-menu page-link" data-page="maintenance"
+                  >수질 측정기기 유지관리</a
+                >
+              </li>
+            </ul>
+            <ul class="exp-list">
+              <li>
+                <a class="exp-menu page-link" data-page="cert" data-tab="cert"
+                  >연구개발</a
+                >
+              </li>
+              <li>
+                <a class="exp-menu page-link" data-page="cert" data-tab="cert"
+                  >인증서 및 특허</a
+                >
+              </li>
+              <li>
+                <a class="exp-menu page-link" data-page="cert" data-tab="rnd"
+                  >기업 부설 연구소
+                </a>
+              </li>
+            </ul>
+            <ul class="exp-list">
+              <li>
+                <a class="exp-menu page-link" data-page="" data-tab=""
+                  >고객지원</a
+                >
+              </li>
+              <li>
+                <a class="exp-menu page-link" data-page="" data-tab=""
+                  >공지사항</a
+                >
+              </li>
+              <li>
+                <a class="exp-menu page-link" data-page="" data-tab=""
+                  >1:1문의</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <footer class="custom-footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-logo page-link" data-page="index">
+              <img
+                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/logow.png"
+                alt="logo"
+              />
+            </div>
+            <div class="footer-txt">
+              <p>
+                (주)우보환경시스템 성남시 중원구 갈마치로215 A-402호(상대원동,
+                금강펜테리움IT타워)
+              </p>
+              <p>TEL : 031-697-8299 / FAX : 0504-248-3046</p>
+              <p>COPYRIGHT ⓒ 2023 WooBoSYS. ALL RIGHTS RESERVED.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+`;
+
+    $(".custom-wrap").append(Footer);
+
+    // 2차메뉴
     const $header = $("#header");
-    const $topCategory = $(".top_category > ul");
     if (!$header.find(".custom-dropdown").length) {
       $header.prepend(`
 		   <div class="custom-dropdown">
@@ -21,16 +450,16 @@ $(document).ready(function () {
                 <div class="custom-drop-link">
                   <ul class="custom-drop-list">
                     <li>
-                      <a class="custom-drop-menu" href="about.html">ABOUT US</a>
+                      <a class="custom-drop-menu page-link" data-page="about" data-tab="about">ABOUT US</a>
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href="history.html">연혁</a>
+                      <a class="custom-drop-menu page-link" data-page="about" data-tab="history">연혁</a>
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href="org.html">조직도</a>
+                      <a class="custom-drop-menu page-link" data-page="about" data-tab="organization">조직도</a>
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href="locate.html">찾아오시는 길</a>
+                      <a class="custom-drop-menu page-link" data-page="about" data-tab="location">찾아오시는 길</a>
                     </li>
                   </ul>
                 </div>
@@ -67,11 +496,11 @@ $(document).ready(function () {
                 </div>
                 <div class="custom-drop-link">
                   <ul class="custom-drop-list">
-                    <li>
-                      <a class="custom-drop-menu" href="rnd.html">기업 부설 연구소</a>
+                      <li>
+                      <a class="custom-drop-menu page-link" data-page="cert" data-tab="certification">인증서 및 특허</a>
                     </li>
                     <li>
-                      <a class="custom-drop-menu" href="cert.html">인증서 및 특허</a>
+                      <a class="custom-drop-menu page-link" data-page="cert" data-tab="rnd">기업 부설 연구소</a>
                     </li>
                   </ul>
                 </div>
@@ -103,55 +532,130 @@ $(document).ready(function () {
 
     let isHover = false;
     let isScrolled = false;
+    let isAnimating = false;
+    let closeTimer = null;
 
-    // 헤더 상태 업데이트
+    const hasSubHero = $(".sub-hero").length > 0;
+
+    /* =====================================
+   HEADER STATE
+===================================== */
+
     function updateHeader() {
-      const isActive = isHover || isScrolled;
+      const isActive = hasSubHero || isHover || isScrolled;
 
       $header.toggleClass("active", isActive);
 
-      // 로고 변경
-      if (isActive) {
-        $logo.attr("src", "img/logo.png");
-      } else {
-        $logo.attr("src", "img/logow.png");
-      }
+      $logo.attr("src", isActive ? "img/logo.png" : "img/logow.png");
     }
 
-    // 스크롤 상태 체크
+    /* =====================================
+   DROPDOWN OPEN
+===================================== */
+
+    function openDropdown() {
+      clearTimeout(closeTimer);
+
+      isHover = true;
+
+      updateHeader();
+
+      // 이미 열려있으면 종료
+      if ($customDrop.is(":visible")) {
+        return;
+      }
+
+      // 애니메이션 중이면 무시
+      if (isAnimating) {
+        return;
+      }
+
+      isAnimating = true;
+
+      $customDrop.stop(true, true).slideDown(300, function () {
+        isAnimating = false;
+      });
+    }
+
+    /* =====================================
+   DROPDOWN CLOSE
+===================================== */
+
+    function closeDropdown() {
+      isHover = false;
+
+      clearTimeout(closeTimer);
+
+      closeTimer = setTimeout(function () {
+        // 다시 hover 상태면 닫지 않음
+        if ($header.is(":hover")) {
+          return;
+        }
+
+        // 애니메이션 중이면 조금 뒤 다시 체크
+        if (isAnimating) {
+          closeDropdown();
+
+          return;
+        }
+
+        // 이미 닫혀있으면 종료
+        if (!$customDrop.is(":visible")) {
+          updateHeader();
+          return;
+        }
+
+        isAnimating = true;
+
+        $customDrop.stop(true, true).slideUp(300, function () {
+          isAnimating = false;
+
+          updateHeader();
+        });
+      }, 150);
+    }
+
+    /* =====================================
+   HEADER HOVER
+===================================== */
+
+    const $gnb = $(".gnb");
+    $gnb.on("mouseenter", function () {
+      openDropdown();
+    });
+
+    $header.on("mouseleave", function () {
+      closeDropdown();
+    });
+
+    /* =====================================
+   SCROLL
+===================================== */
+
     function checkScroll() {
       isScrolled = $(window).scrollTop() > 0;
 
       updateHeader();
     }
 
-    // 헤더 마우스 진입
-    $header.on("mouseenter", function () {
-      isHover = true;
+    $(window).on("scroll", checkScroll);
 
-      $customDrop.stop(true, true).slideDown(300);
+    /* =====================================
+   INIT
+===================================== */
 
-      updateHeader();
-    });
-
-    // 헤더 마우스 이탈
-    $header.on("mouseleave", function () {
-      isHover = false;
-
-      $customDrop.stop(true, true).slideUp(300);
-
-      updateHeader();
-    });
-
-    // 스크롤 이벤트
-    $(window).on("scroll", function () {
-      checkScroll();
-    });
-
-    // 최초 로드 시 상태 적용
     checkScroll();
+
+    /* 새로고침 시 마우스가 이미 헤더 위에 있는 경우 */
+
+    setTimeout(function () {
+      if ($header.is(":hover")) {
+        openDropdown();
+      }
+    }, 100);
   }
 
+  // 섹션단위 스크롤
   function sectionScroll() {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     const sections = gsap.utils.toArray(".section");
@@ -203,22 +707,6 @@ $(document).ready(function () {
       },
       { passive: false },
     );
-  }
-
-  function customDropdown() {
-    const $customMenu = $(".custom-menu-all");
-    const $customDrop = $(".custom-dropdown");
-
-    $customMenu.click(function (e) {
-      e.preventDefault();
-
-      $customDrop.stop().slideToggle();
-    });
-    $(".top_banner_close").appendTo(".custom-top-banner");
-
-    $(".top_banner_close").click(function () {
-      $(".custom-top-banner").slideUp();
-    });
   }
 
   // --------- 스크롤트리거

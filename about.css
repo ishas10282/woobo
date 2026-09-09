@@ -1,0 +1,312 @@
+/* =====================================
+   SUB HERO
+===================================== */
+.custom-wrap .section.sub-page {
+  padding-top: 80px;
+}
+
+.sub-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.sub-hero__inner {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: clamp(180px, 20vw, 320px);
+
+  overflow: hidden;
+}
+
+/* 배경 이미지 */
+
+.sub-hero__bg {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: 0;
+}
+
+/* 어두운 오버레이 */
+
+.sub-hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  background-color: rgba(0, 0, 0, 0.3);
+
+  z-index: 1;
+}
+
+/* 텍스트 */
+
+.sub-hero__content {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+
+  color: #fff;
+}
+
+.sub-hero__content h1 {
+  margin: 0;
+  font-family: "Pretendard Variable", sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 60px);
+  color: #fff;
+  letter-spacing: 0.03em;
+}
+
+/* =====================================
+   TAB MENU
+===================================== */
+
+.sub-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(20px, 2vw, 40px);
+}
+
+.sub-tab {
+  position: relative;
+
+  padding: 10px 0;
+
+  border: 0;
+  background: transparent;
+
+  font-family: inherit;
+
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 500;
+
+  color: #999;
+
+  cursor: pointer;
+
+  transition: color 0.3s ease;
+}
+
+.sub-tab:hover,
+.sub-tab.active {
+  color: var(--brand);
+}
+
+.sub-tab::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background-color: var(--brand);
+
+  transform: translateX(-50%);
+
+  transition: width 0.3s ease;
+}
+
+.sub-tab.active::after {
+  width: 100%;
+}
+/* =====================================
+   TAB PANELS
+===================================== */
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.tab-inner {
+  min-height: 400px;
+}
+
+.tab-inner p {
+  color: var(--gray);
+
+  line-height: 1.8;
+}
+@media (max-width: 768px) {
+  /* HERO */
+
+  .sub-hero__inner {
+    height: 140px;
+  }
+
+  /* TABS */
+
+  .sub-tabs {
+    justify-content: flex-start;
+
+    gap: 25px;
+
+    overflow-x: auto;
+
+    padding: 0 5%;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+  .sub-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sub-tab {
+    flex: 0 0 auto;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+  }
+}
+
+/* About Panel*/
+
+/* About */
+.about-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.about-wrap:nth-child(2) .about-img {
+  order: 1;
+}
+
+.about-txt {
+  padding: 40px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* People */
+.people .prod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.people .grid-item {
+  border: 1px solid var(--point1);
+  border-radius: 10px;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--gap);
+  text-align: center;
+  background: #fff;
+}
+
+.people .grid-icon {
+  width: clamp(32px, 6vw, 80px);
+}
+
+.people .grid-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.people .prod-grid::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--point1);
+  top: 50%;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .about-wrap {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .about-wrap:nth-child(2) .about-img {
+    order: 0;
+  }
+
+  .people .prod-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .people .prod-grid::before {
+    display: none;
+  }
+}
+
+/* History Panel */
+.history-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 60px;
+}
+
+.history-list {
+  padding: 20px;
+}
+
+.history-txt {
+  margin-bottom: 10px;
+}
+
+/* Location Panel */
+.location .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.location h5 {
+  text-transform: none;
+  font-weight: 500;
+}
+
+.location p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #333;
+}
+
+.loc-info {
+  padding-bottom: 120px;
+}
+
+.loc-info h1 {
+  margin-bottom: 40px;
+}
+
+.loc-list {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.loc-list i {
+  color: var(--brand);
+  font-size: 32px;
+}

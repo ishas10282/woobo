@@ -1,0 +1,193 @@
+/* =====================================
+   SUB HERO
+===================================== */
+.custom-wrap .section.sub-page {
+  padding-top: 80px;
+}
+
+.sub-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.sub-hero__inner {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: clamp(180px, 20vw, 320px);
+
+  overflow: hidden;
+}
+
+/* 배경 이미지 */
+
+.sub-hero__bg {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: 0;
+}
+
+/* 어두운 오버레이 */
+
+.sub-hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  background-color: rgba(0, 0, 0, 0.3);
+
+  z-index: 1;
+}
+
+/* 텍스트 */
+
+.sub-hero__content {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+
+  color: #fff;
+}
+
+.sub-hero__content h1 {
+  margin: 0;
+  font-family: "Pretendard Variable", sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 60px);
+  color: #fff;
+  letter-spacing: 0.03em;
+}
+
+/* =====================================
+   TAB MENU
+===================================== */
+
+.sub-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(20px, 2vw, 40px);
+}
+
+.sub-tab {
+  position: relative;
+
+  padding: 10px 0;
+
+  border: 0;
+  background: transparent;
+
+  font-family: inherit;
+
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 500;
+
+  color: #999;
+
+  cursor: pointer;
+
+  transition: color 0.3s ease;
+}
+
+.sub-tab:hover,
+.sub-tab.active {
+  color: var(--brand);
+}
+
+.sub-tab::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background-color: var(--brand);
+
+  transform: translateX(-50%);
+
+  transition: width 0.3s ease;
+}
+
+.sub-tab.active::after {
+  width: 100%;
+}
+/* =====================================
+   TAB PANELS
+===================================== */
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.tab-inner {
+  min-height: 400px;
+}
+
+.tab-inner p {
+  color: var(--gray);
+
+  line-height: 1.8;
+}
+@media (max-width: 768px) {
+  /* HERO */
+
+  .sub-hero__inner {
+    height: 140px;
+  }
+
+  /* TABS */
+
+  .sub-tabs {
+    justify-content: flex-start;
+
+    gap: 25px;
+
+    overflow-x: auto;
+
+    padding: 0 5%;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+  .sub-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sub-tab {
+    flex: 0 0 auto;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+  }
+}
+
+/* Certification Panel */
+.cert .prod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.cert .grid-item {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+}

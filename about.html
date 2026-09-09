@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>우보 환경 시스템 | 환경측정·수질관리 전문기업</title>
+    <link
+      rel="icon"
+      href="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/favicon.ico?=v2"
+      type="image/x-icon"
+    />
+
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- GSAP + Scroll Trigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollToPlugin.min.js"></script>
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+    <link rel="stylesheet" href="about.css" />
+    <script src="about.js"></script>
+    <style>
+      /* FONT-AWESOME */
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
+    </style>
+  </head>
+  <body>
+    <div class="custom-wrap">
+      <section class="section sub-page">
+        <!-- =========================
+       TOP BANNER
+  ========================== -->
+
+        <section class="sub-hero">
+          <div class="sub-hero__inner">
+            <div
+              class="sub-hero__bg"
+              style="
+                background-image: url(https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/about.jpg);
+              "
+            ></div>
+
+            <div class="sub-hero__overlay"></div>
+
+            <div class="sub-hero__content">
+              <h1>ABOUT US</h1>
+            </div>
+          </div>
+        </section>
+
+        <!-- =========================
+       TAB MENU
+  ========================== -->
+
+        <section class="section sub-content">
+          <nav class="sub-tabs">
+            <button
+              type="button"
+              class="sub-tab"
+              data-tab="about"
+              data-title="ABOUT US"
+              data-bg="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/about.jpg"
+            >
+              ABOUT US
+            </button>
+
+            <button
+              type="button"
+              class="sub-tab"
+              data-tab="history"
+              data-title="HISTORY"
+              data-bg="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/history.jpg"
+            >
+              연혁
+            </button>
+
+            <button
+              type="button"
+              class="sub-tab"
+              data-tab="organization"
+              data-title="ORGANIZATION"
+              data-bg="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/org.jpg"
+            >
+              조직도
+            </button>
+
+            <button
+              type="button"
+              class="sub-tab"
+              data-tab="location"
+              data-title="LOCATION"
+              data-bg="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/locate.jpg"
+            >
+              오시는 길
+            </button>
+          </nav>
+        </section>
+        <!-- =========================
+           TAB CONTENT
+      ========================== -->
+
+        <div class="tab-panels">
+          <!-- ABOUT Tab -->
+          <div class="tab-panel" data-panel="about">
+            <div class="tab-inner">
+              <!-- About -->
+              <section class="section aboutus">
+                <div class="container">
+                  <div class="about-wrap">
+                    <div class="about-img">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/about-01.jpg"
+                        alt="SYSTEM"
+                      />
+                    </div>
+                    <div class="about-txt">
+                      <h2>ABOUT WOOBO ENVIRONMENTAL SYSTEM</h2>
+                      <h1>정확한 측정에서 시작되는 환경관리</h1>
+                      <h3>
+                        ㈜우보환경시스템은 수질측정 기술과 IoT 기반 모니터링을
+                        바탕으로 환경시설의 데이터를 연결하고, 현장과 관리주체를
+                        위한 스마트 환경관리 솔루션을 제공합니다.
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="about-wrap">
+                    <div class="about-img">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/about-02.jpg"
+                        alt="MANAGEMENT"
+                      />
+                    </div>
+                    <div class="about-txt">
+                      <h2>DATA TO MANAGEMENT</h2>
+                      <h1>측정 데이터를, 관리의 기준으로</h1>
+                      <h3>
+                        환경관리는 정확한 데이터에서 시작됩니다.
+                        우보환경시스템은 현장의 환경 데이터를 수집하고 분석하여
+                        관리자가 보다 빠르고 정확하게 판단할 수 있는 환경관리
+                        환경을 만들어갑니다.
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- PeoPle -->
+              <section class="section people pb">
+                <div class="section-title">
+                  <h2>REAL-TIME DATA PROCESSING</h2>
+                  <h1>데이터를 모으고, 상태를 판단합니다.</h1>
+                  <p>
+                    현장의 수질 데이터를 실시간으로 수집·측정하고<br />설정된
+                    기준에 따라 현재 수질 상태를 판단합니다.
+                  </p>
+                </div>
+
+                <div class="container">
+                  <div class="prod-grid">
+                    <div class="grid-item">
+                      <div class="grid-icon">
+                        <img
+                          src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/about-icon-01.png"
+                          alt="icon"
+                        />
+                      </div>
+                      <div class="grid-txt">
+                        <h5>Efficiency</h5>
+                        <h4>처리효율 향상</h4>
+                        <p>
+                          전체 처리공정의 상태를 확인하고 안정적인 공정 운영을
+                          지원합니다.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="grid-item">
+                      <div class="grid-icon">
+                        <img
+                          src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/about-icon-02.png"
+                          alt="icon"
+                        />
+                      </div>
+                      <div class="grid-txt">
+                        <h5>Energy Saving</h5>
+                        <h4>에너지 절감</h4>
+                        <p>
+                          수질 상태에 따른 적정 운영으로 불필요한 에너지 사용을
+                          줄이는 데 기여합니다.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="grid-item">
+                      <div class="grid-icon">
+                        <img
+                          src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/about-icon-03.png"
+                          alt="icon"
+                        />
+                      </div>
+                      <div class="grid-txt">
+                        <h5>Cost Saving</h5>
+                        <h4>운영비 절감</h4>
+                        <p>
+                          송풍기 전력 및 약품 사용 등 처리공정 운영비 절감을
+                          지원합니다.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="grid-item">
+                      <div class="grid-icon">
+                        <img
+                          src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/about-icon-04.png"
+                          alt="icon"
+                        />
+                      </div>
+                      <div class="grid-txt">
+                        <h5>Rapid Response</h5>
+                        <h4>신속한 대응</h4>
+                        <p>
+                          고농도 유입이나 공정 이상 발생 시 문제를 파악하고
+                          신속하게 대응할 수 있습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- HISTORY -->
+
+          <div class="tab-panel" data-panel="history">
+            <div class="tab-inner">
+              <section class="section history pb">
+                <div class="container">
+                  <!-- 2026 -->
+                  <div class="history-wrap">
+                    <div class="history-img">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/his-01.jpg"
+                        alt="2026"
+                      />
+                    </div>
+                    <div class="history-list">
+                      <div class="history-txt">
+                        <h5>2026.08.</h5>
+                        <p>
+                          “하폐수 처리시설 탄소중립 실현을 위한 수질 모니터링
+                          시스템” 특허 등록
+                        </p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2026.07.</h5>
+                        <p>
+                          “물놀이형 수경시설 실시간 수질정보와 기상정보 제공
+                          시스템 및 방법” 특허 등록
+                        </p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2026.06.</h5>
+                        <p>환경측정기기 형식 승인(잔류염소, 부유물질)</p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2026.05.</h5>
+                        <p>측정기기 관리대행능력 평가결과(우수사업자)</p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2026.04.</h5>
+                        <p>
+                          “물놀이형 수경시설 실시간 수질정보와 기상정보 제공
+                          전광판” 특허 등록
+                        </p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2026.03.</h5>
+                        <p>중소기업 확인(2026.04.01 ~ 2027.03.31.)</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 2025 -->
+                  <div class="history-wrap">
+                    <div class="history-img">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/his-02.jpg"
+                        alt="2025"
+                      />
+                    </div>
+                    <div class="history-list">
+                      <div class="history-txt">
+                        <h5>2025.12.</h5>
+                        <p>창업기업 확인</p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2025.06.</h5>
+                        <p>벤처기업 확인(2025.06.04. ~ 2028.06.03.)</p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2025.04.</h5>
+                        <p>중소기업 확인(2025.04.01 ~ 2026.03.31.)</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 2024 -->
+                  <div class="history-wrap">
+                    <div class="history-img">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/his-03.jpg"
+                        alt="2024"
+                      />
+                    </div>
+                    <div class="history-list">
+                      <div class="history-txt">
+                        <h5>2024.04.</h5>
+                        <p>중소기업 확인(2024.04.01 ~ 2025.03.31.)</p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2024.03.</h5>
+                        <p>(사)한국수질자동측정기기관리대행업협회 가입</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 2023 -->
+                  <div class="history-wrap">
+                    <div class="history-img">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/his-04.jpg"
+                        alt="2023"
+                      />
+                    </div>
+                    <div class="history-list">
+                      <div class="history-txt">
+                        <h5>2023.12.</h5>
+                        <p>창업기업 확인(2023.12.20. ~ 2026.12.20.)</p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2023.10.</h5>
+                        <p>측정기기 관리대행업 등록</p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2023.10.</h5>
+                        <p>시약판매업 신고 확인</p>
+                      </div>
+                      <div class="history-txt">
+                        <h5>2023.09.</h5>
+                        <p>㈜우보환경시스템 법인 설립</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- ORGANIZATION -->
+
+          <div class="tab-panel" data-panel="organization">
+            <div class="tab-inner">
+              <section class="section organization pb">
+                <div class="container">
+                  <img
+                    src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/chart.svg"
+                    alt="chart"
+                  />
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- LOCATION -->
+
+          <div class="tab-panel" data-panel="location">
+            <div class="tab-inner">
+              <section class="section location pb">
+                <div class="container">
+                  <div class="loc-info">
+                    <h1>CONTACT US</h1>
+                    <div class="loc-list">
+                      <i class="fa-solid fa-location-dot"></i>
+                      <div class="loc-txt">
+                        <h5>Address</h5>
+                        <p>
+                          경기도 성남시 중원구 갈마치로 215, 금강펜테리움IT타워
+                          A동 808호
+                        </p>
+                      </div>
+                    </div>
+                    <div class="loc-list">
+                      <i class="fa-solid fa-phone"></i>
+                      <div class="loc-txt">
+                        <h5>Tel</h5>
+                        <p>031-697-8222</p>
+                      </div>
+                    </div>
+                    <div class="loc-list">
+                      <i class="fa-solid fa-fax"></i>
+                      <div class="loc-txt">
+                        <h5>Fax</h5>
+                        <p>0504-248-3046</p>
+                      </div>
+                    </div>
+                    <div class="loc-list">
+                      <i class="fa-solid fa-envelope"></i>
+                      <div class="loc-txt">
+                        <h5>E-mail</h5>
+                        <p>
+                          경기도 성남시 중원구 갈마치로 215, 금강펜테리움IT타워
+                          A동 808호
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="loc-map">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca9eb920813c7%3A0x88899c76644aaec1!2z6riI6rCV7Y6c7YWM66as7JuASVTtg4Dsm4w!5e0!3m2!1sko!2skr!4v1788934455821!5m2!1sko!2skr"
+                      width="100%"
+                      height="100%"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                    ></iframe>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

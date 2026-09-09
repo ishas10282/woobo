@@ -35,6 +35,7 @@
 }
 
 .section.main h2 {
+  font-family: "Pretendard Variable", sans-serif;
   color: var(--point);
 }
 

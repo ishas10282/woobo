@@ -60,40 +60,6 @@
   </head>
   <body>
     <div class="custom-wrap">
-      <!-- Header -->
-      <header id="header" class="header">
-        <div class="header-inner">
-          <div class="logo">
-            <a href="index.html"
-              ><img
-                src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/logow.png"
-                alt="logo"
-            /></a>
-          </div>
-          <div class="gnb">
-            <ul class="depth1-wrap">
-              <li class="depth1">
-                <a href="water-display.html"
-                  ><span class="highlight">스마트 물놀이 수질 전광판</span></a
-                >
-              </li>
-              <li class="depth1">
-                <a href="about.html"><span>회사소개</span></a>
-              </li>
-              <li class="depth1">
-                <a href="water-display.html"><span>사업소개</span></a>
-              </li>
-              <li class="depth1">
-                <a href="rnd.html"><span>연구개발</span></a>
-              </li>
-              <li class="depth1">
-                <a href="#none"><span>고객지원</span></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </header>
-
       <!-- Main -->
       <section class="section main">
         <div class="swiper mainSwiper">
@@ -193,16 +159,24 @@
           <h3 class="fade-right">
             ㈜우보환경시스템은 수질측정 기술과 IoT 기반 모니터링을 바탕으로
             환경시설의 데이터를 연결하고<br />
-            현장과 관리주체을 위한 스마트 환경관리 솔루션을 제공합니다.
+            현장과 관리주체를 위한 스마트 환경관리 솔루션을 제공합니다.
           </h3>
           <div class="bubble-group">
-            <a href="#" class="bubble-btn fade-left">
+            <a
+              href="#"
+              class="bubble-btn fade-left page-link"
+              data-page="about"
+            >
               <h4>회사 개요</h4>
               <p>Overview</p>
             </a>
-            <a href="#" class="bubble-btn fade-left">
-              <h4>회사 연혁</h4>
-              <p>History</p>
+            <a
+              href="#"
+              class="bubble-btn fade-left page-link"
+              data-page="water-display"
+            >
+              <h4>사업 소개</h4>
+              <p>Business</p>
             </a>
           </div>
         </div>
@@ -218,18 +192,18 @@
               </div>
               <div class="grid-item">
                 <h4 class="jetbrain">IoT</h4>
-                <p>Internet of Things 환경 모니터링 기술</p>
+                <p>환경 모니터링 기술</p>
               </div>
               <div class="grid-item">
                 <h4>전문기술인력</h4>
-                <p>환경 · 수질관리 분야 기술인력 보유</p>
+                <p>수질관리 분야 기술인력 다수 보유</p>
               </div>
               <div class="grid-item">
                 <h4>우수사업자</h4>
                 <p>측정기기 관리대행능력 평가</p>
               </div>
               <div class="grid-item">
-                <h4 class="jetbrain">00+</h4>
+                <h4 class="jetbrain">09+</h4>
                 <p>기술 인증 및 특허</p>
               </div>
             </div>
@@ -245,29 +219,30 @@
             환경 현장에 필요한 기술과 서비스를 제공합니다.
           </h1>
           <p class="fade-right">
-            스마트 수질 모니터링부터 탄소중립을 위한 그린모니터링,
+            우리 아이 안전한 물놀이를 위한 스마트 물놀이 수질 전광판,
+            <br />스마트 수질 모니터링부터 탄소중립을 위한 그린모니터링 시스템,
             <br />환경 측정기기 컨설팅과 유지관리까지 다양한 환경 분야의 요구에
             맞는 사업을 수행합니다.
           </p>
         </div>
         <div class="container">
           <div class="prod-grid">
-            <div class="grid-item fade-up">
+            <div class="grid-item fade-up page-link" data-page="water-display">
               <div class="grid-txt invert">
                 <h4>스마트 물놀이 수질 전광판</h4>
                 <p>실시간 수질 측정으로 더 안전한 물놀이 환경을 제공합니다.</p>
               </div>
             </div>
-            <div class="grid-item fade-up">
+            <div class="grid-item fade-up page-link" data-page="gms">
               <div class="grid-txt invert">
                 <h4>그린 모니터링 시스템</h4>
                 <p>
-                  수질 데이터를 기반으로 효율적인 공정 운영과 탄소중립을
-                  지원합니다.
+                  공공 하·폐수 처리시설의 수질 데이터를 기반으로 효율적인 공정
+                  운영과 탄소중립을 지원합니다.
                 </p>
               </div>
             </div>
-            <div class="grid-item fade-up">
+            <div class="grid-item fade-up page-link" data-page="maintenance">
               <div class="grid-txt invert">
                 <h4>수질 측정기기 유지 관리</h4>
                 <p>
@@ -276,6 +251,28 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Video -->
+      <section class="section video">
+        <div class="section-title">
+          <h2 class="fade-right">VISIBLE WATER QUALITY</h2>
+          <h1 class="fade-left">
+            보이지 않는 수질을, 누구나 확인할 수 있도록.
+          </h1>
+          <p class="fade-right">
+            실시간 수질 측정부터 정보 표시까지, 더 투명하고 안전한 물놀이 환경을
+            제공합니다.
+          </p>
+        </div>
+        <div class="container fade-up">
+          <video
+            src="https://cdn.jsdelivr.net/gh/ishas10282/woobo@main/img/video-01.mp4"
+            muted
+            autoplay
+            loop
+          ></video>
         </div>
       </section>
 
@@ -290,7 +287,7 @@
             운영 개선과 에너지 절감을 통해 탄소중립을 실현하고, 향후 AI 기반
             자동화로 확장할 수 있는 기반을 마련합니다.
           </p>
-          <div class="primary-btn-w fade-right">
+          <div class="primary-btn-w fade-right page-link" data-page="gms">
             <div class="line-h"></div>
             <div class="line-h"></div>
             <div class="line-v"></div>
@@ -303,28 +300,13 @@
             <div class="grid-item fade-up swiper-slide">
               <div class="grid-img">
                 <img
-                  src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-06.jpg"
-                  alt="gms01"
-                />
-              </div>
-              <div class="grid-txt">
-                <h4>
-                  <span class="jetbrain">01</span>
-                  수질 측정
-                </h4>
-                <p>유입수와 공정별 수질을 측정하여 처리 상태를 파악합니다.</p>
-              </div>
-            </div>
-            <div class="grid-item fade-up swiper-slide">
-              <div class="grid-img">
-                <img
                   src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-07.jpg"
                   alt="gms02"
                 />
               </div>
               <div class="grid-txt">
                 <h4>
-                  <span class="jetbrain">02</span>
+                  <span class="jetbrain">01</span>
                   공정 모니터링
                 </h4>
                 <p>공정별 수질 변화를 지속적으로 확인하고 관리합니다.</p>
@@ -339,7 +321,7 @@
               </div>
               <div class="grid-txt">
                 <h4>
-                  <span class="jetbrain">03</span>
+                  <span class="jetbrain">02</span>
                   공정 최적화
                 </h4>
                 <p>수질 데이터를 기반으로 효율적인 공정 운영을 지원합니다.</p>
@@ -354,7 +336,7 @@
               </div>
               <div class="grid-txt">
                 <h4>
-                  <span class="jetbrain">04</span>
+                  <span class="jetbrain">03</span>
                   에너지 절감
                 </h4>
                 <p>효율적인 공정 운영을 통해 에너지 절감 기반을 마련합니다.</p>
@@ -369,7 +351,7 @@
               </div>
               <div class="grid-txt">
                 <h4>
-                  <span class="jetbrain">05</span>
+                  <span class="jetbrain">04</span>
                   탄소중립
                 </h4>
                 <p>에너지 절감을 통해 탄소중립 실현에 기여합니다.</p>
@@ -384,7 +366,7 @@
               </div>
               <div class="grid-txt">
                 <h4>
-                  <span class="jetbrain">06</span>
+                  <span class="jetbrain">05</span>
                   AI 자동화 기반
                 </h4>
                 <p>AI 기반 자동화로 확장할 수 있는 기반을 구축합니다.</p>
@@ -479,7 +461,11 @@
               <h4>사고 발생 예방</h4>
               <p>Risk Reduction</p>
             </div>
-            <a href="#none" class="bubble-btn fade-down">
+            <a
+              href="#none"
+              class="bubble-btn fade-down page-link"
+              data-page="maintenance"
+            >
               <h4>더보기</h4>
               <p>View More</p>
             </a>
@@ -490,15 +476,16 @@
       <!-- Process -->
       <section class="section process">
         <div class="section-title">
-          <h2 class="fade-right">GREEN MONITORING SYSTEM</h2>
-          <h1 class="fade-left">효율적인 공정 운영에서 탄소중립까지</h1>
+          <h2 class="fade-right">TRUSTED ENVIRONMENTAL MANAGEMENT</h2>
+          <h1 class="fade-left">
+            전문성과 경험으로, 안정적인 환경관리를 이어갑니다.
+          </h1>
           <p class="fade-right">
-            하·폐수 처리시설의 각 공정에서 수질 데이터를 확인하고 관리하여
-            처리공정의 상태를 파악하고 효율적인 운영을 지원합니다.<br />공정
-            운영 개선과 에너지 절감을 통해 탄소중립을 실현하고, 향후 AI 기반
-            자동화로 확장할 수 있는 기반을 마련합니다.
+            10년 이상의 수질 측정기기 유지관리 경험과 전문 기술인력을
+            바탕으로<br />현장 분석부터 측정기기 선정, 측정, 모니터링,
+            유지관리까지 환경 측정의 전 과정을 체계적으로 지원합니다.
           </p>
-          <div class="primary-btn-w fade-right">
+          <div class="primary-btn-w fade-right page-link" data-page="gms">
             <div class="line-h"></div>
             <div class="line-h"></div>
             <div class="line-v"></div>
@@ -515,7 +502,7 @@
               <div class="grid-img">
                 <img
                   src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-icon-01.png"
-                  alt="process"
+                  alt="analyze"
                 />
               </div>
               <div class="grid-txt">
@@ -531,7 +518,7 @@
               <div class="grid-img">
                 <img
                   src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-icon-02.png"
-                  alt="process"
+                  alt="selection"
                 />
               </div>
               <div class="grid-txt">
@@ -547,7 +534,7 @@
               <div class="grid-img">
                 <img
                   src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-icon-03.png"
-                  alt="process"
+                  alt="measure"
                 />
               </div>
               <div class="grid-txt">
@@ -563,7 +550,7 @@
               <div class="grid-img">
                 <img
                   src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-icon-04.png"
-                  alt="process"
+                  alt="monitor"
                 />
               </div>
               <div class="grid-txt">
@@ -579,7 +566,7 @@
               <div class="grid-img">
                 <img
                   src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-icon-05.png"
-                  alt="process"
+                  alt="maintain"
                 />
               </div>
               <div class="grid-txt">
@@ -595,7 +582,7 @@
               <div class="grid-img">
                 <img
                   src="https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/index-icon-06.png"
-                  alt=""
+                  alt="optimize"
                 />
               </div>
               <div class="grid-txt">
@@ -608,18 +595,6 @@
         </div>
       </section>
 
-      <!-- Video -->
-      <section class="section video">
-        <div class="container fade-up">
-          <video
-            src="https://cdn.jsdelivr.net/gh/ishas10282/woobo@main/img/video-01.mp4"
-            muted
-            autoplay
-            loop
-          ></video>
-        </div>
-      </section>
-
       <!-- Certification -->
       <section class="section cert">
         <div class="section-title">
@@ -629,7 +604,7 @@
             우보환경시스템은 지속적인 기술 개발과 현장 경험을 바탕으로<br />특허와
             인증을 확보하며 환경계측 전문기업으로서의 역량을 강화하고 있습니다.
           </p>
-          <div class="primary-btn-w fade-right">
+          <div class="primary-btn-w fade-right page-link" data-page="cert">
             <div class="line-h"></div>
             <div class="line-h"></div>
             <div class="line-v"></div>

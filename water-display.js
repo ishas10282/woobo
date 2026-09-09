@@ -1,6 +1,6 @@
 $(document).ready(function () {
   videoSound();
-  adminSwiper();
+  // adminSwiper();
 
   function videoSound() {
     $(".video-sound").on("click", function () {

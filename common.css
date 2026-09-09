@@ -55,6 +55,11 @@
   font-family: "Pretendard Variable", sans-serif;
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -97,9 +102,9 @@ a {
 .custom-wrap h2 {
   font-size: clamp(16px, 1.5vw, 24px);
   font-family: "JetBrains Mono", monospace;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
-  color: var(--brand);
+  color: #999;
 }
 
 /* 타이틀 본문 */
@@ -165,17 +170,20 @@ a {
 
 /* 하이라이트 */
 .custom-wrap .highlight {
-  /* color: var(--point2) !important; */
-  font-weight: bold;
+  color: var(--point) !important;
+  font-family: inherit;
 }
 
 /* 색상 반전 */
 .custom-wrap .invert h1,
-.custom-wrap .invert h2,
 .custom-wrap .invert h3,
 .custom-wrap .invert h4,
 .custom-wrap .invert h5 {
   color: #fff;
+}
+
+.custom-wrap .invert h2 {
+  color: #aaa;
 }
 
 .custom-wrap .invert p {
@@ -412,29 +420,8 @@ a {
   background-color: var(--brand);
 }
 
-/* CTA */
-.section.cta {
-  padding: 60px 0;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/contact.jpg")
-      center / cover no-repeat;
-}
-.cta .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cta-btn .primary-btn {
-  border: 1px solid #ddd;
-  color: #ddd;
-  font-size: 16px;
-  margin-left: 10px;
-}
-
 /* ----------------- */
-/* Header 임시*/
+/* Header*/
 /* ----------------- */
 
 #header {
@@ -444,6 +431,8 @@ a {
   padding: 10px 0;
   height: 80px;
   transition: all 0.3s ease;
+  top: 0;
+  left: 0;
 }
 
 .header-inner {
@@ -453,6 +442,7 @@ a {
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
+  height: 100%;
 }
 
 .logo {
@@ -559,4 +549,511 @@ a {
 .custom-drop-menu:hover {
   color: var(--brand);
   font-weight: 700;
+}
+
+/* ========================================
+   Floating Contact Menu
+======================================== */
+
+.floating-menu {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ========================================
+   Contact Actions
+======================================== */
+
+.floating-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.floating-menu.is-open .floating-actions {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ========================================
+   Common Button
+======================================== */
+
+.floating-btn,
+.floating-toggle,
+.floating-top {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.floating-btn:hover,
+.floating-toggle:hover,
+.floating-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   Contact Buttons
+======================================== */
+
+.floating-btn {
+  position: relative;
+
+  color: #fff;
+
+  font-size: 18px;
+}
+
+/* 전화 */
+.floating-btn.phone {
+  background: var(--point1);
+}
+
+/* 메일 */
+.floating-btn.mail {
+  background: var(--point1);
+  color: #fff;
+}
+
+/* 팩스 */
+.floating-btn.fax {
+  background: var(--point1);
+}
+
+/* 1:1 문의 */
+.floating-btn.inquiry {
+  background: var(--point1);
+}
+
+/* ========================================
+   Tooltip
+======================================== */
+
+.floating-btn span {
+  position: absolute;
+
+  right: calc(100% + 12px);
+  top: 50%;
+
+  transform: translateY(-50%) translateX(5px);
+
+  padding: 8px 13px;
+
+  border-radius: 6px;
+
+  background: #fff;
+  color: #222;
+
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.floating-btn:hover span {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ========================================
+   + Button
+======================================== */
+
+.floating-toggle {
+  flex-shrink: 0;
+
+  background: #0b8e36;
+  color: #fff;
+
+  font-size: 20px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.floating-menu.is-open .floating-toggle {
+  background: #aacf76;
+  color: #18351f;
+}
+
+.floating-menu.is-open .floating-toggle i {
+  transform: rotate(45deg);
+}
+
+.floating-toggle i {
+  transition: transform 0.3s ease;
+}
+
+/* ========================================
+   TOP Button
+======================================== */
+
+.floating-top {
+  flex-shrink: 0;
+
+  background: #777;
+  color: #fff;
+
+  font-size: 16px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.floating-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0);
+}
+
+/* ========================================
+   Fax Modal
+======================================== */
+
+.fax-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.fax-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 배경 */
+
+.fax-modal-dim {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+/* 팝업 */
+
+.fax-modal-box {
+  position: relative;
+  z-index: 1;
+
+  width: min(420px, calc(100% - 40px));
+  padding: 45px 35px 35px;
+
+  background: #fff;
+  border-radius: 20px;
+
+  text-align: center;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+
+  transform: translateY(20px) scale(0.97);
+
+  transition: transform 0.3s ease;
+}
+
+.fax-modal.is-open .fax-modal-box {
+  transform: translateY(0) scale(1);
+}
+
+/* 닫기 */
+
+.fax-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  width: 36px;
+  height: 36px;
+
+  border: 0;
+  background: transparent;
+
+  color: #777;
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+/* 아이콘 */
+
+.fax-modal-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e9f5df;
+  color: var(--point1);
+
+  font-size: 24px;
+}
+
+/* 제목 */
+
+.fax-modal-label {
+  margin: 0 0 8px;
+
+  color: #777;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* 번호 */
+
+.fax-modal-number {
+  display: block;
+
+  margin-bottom: 25px;
+
+  color: #333;
+
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* 복사 버튼 */
+
+.fax-copy {
+  width: 100%;
+  height: 48px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: var(--point1);
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.fax-copy:hover {
+  background: var(--brand);
+}
+
+/* 모달 열렸을 때 배경 스크롤 방지 */
+
+body.modal-open {
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .floating-menu {
+    right: 18px;
+    bottom: 18px;
+
+    gap: 8px;
+  }
+
+  .floating-actions {
+    gap: 8px;
+  }
+
+  .floating-btn,
+  .floating-toggle,
+  .floating-top {
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-btn {
+    font-size: 16px;
+  }
+
+  .floating-toggle {
+    font-size: 18px;
+  }
+
+  .floating-top {
+    font-size: 14px;
+  }
+
+  /* 모바일에서는 툴팁 숨김 */
+  .floating-btn span {
+    display: none;
+  }
+
+  .fax-modal-box {
+    width: calc(100% - 32px);
+    padding: 40px 25px 25px;
+    border-radius: 16px;
+  }
+
+  .fax-modal-number {
+    font-size: 24px;
+  }
+}
+
+/* 카페24 노멀라이징 */
+#header .inner .top_nav_box .top_mypage {
+  top: 0 !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+/* CTA */
+.section.cta {
+  padding: 60px 0;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://ecimg.cafe24img.com/pg3350b13371685013/wooboeco/img/contact.jpg")
+      center / cover no-repeat;
+}
+.cta .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-btn .primary-btn {
+  border: 1px solid #ddd;
+  color: #ddd;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.page-link {
+  cursor: pointer;
+}
+
+/* Explore */
+.custom-wrap .explore {
+  background-color: #00501a;
+  padding: 60px 0;
+}
+
+.explore .exp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp-list a {
+  color: #aaa;
+  transition: all 0.3s ease;
+}
+.exp-list li:first-child a {
+  color: #ddd;
+  font-weight: 500;
+}
+
+.exp-list a:hover {
+  color: #fff;
+}
+
+/* Footer */
+.custom-footer {
+  background-color: #004015;
+  padding: 60px 0;
+}
+
+.footer-grid {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.footer-logo {
+  width: 180px;
+}
+.footer-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-txt p {
+  color: #aaa;
 }
